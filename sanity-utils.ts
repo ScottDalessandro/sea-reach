@@ -1,9 +1,10 @@
+import sanityClient from "./src/libs/sanity";
 import { groq } from "next-sanity";
-import sanityClient from "./libs/sanity";
+import { Room } from "./types/Room";
 
-export async function getRooms() {
+export async function getRooms(): Promise<Room[]> {
     return sanityClient.fetch(
-        groq`*[_type = 'room']{
+        groq`*[_type == 'room']{
             _id,
             _createdAt,
             name,
@@ -11,7 +12,6 @@ export async function getRooms() {
             'image': image.asset->url,
             url,
             conent
-
         }`
     )
 }
