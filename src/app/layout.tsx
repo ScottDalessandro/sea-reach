@@ -1,4 +1,6 @@
 import Header from "@/components/Header/Header";
+import NavBar from "@/components/NavBar/NavBar";
+import Description from "@/components/Description/Description";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
@@ -24,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <main className="font-normal">
+          <NavBar />
           <Header />
+          <Description />
           {children}
         </main>
       </body>
